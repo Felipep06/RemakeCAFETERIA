@@ -1,0 +1,253 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+}
+body{
+    background-color: navajowhite;
+    font-family: "Poppins", sans-serif;
+}
+section{
+    padding: 3rem 2rem;
+    margin: 0 auto;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-bottom: 0.1rem solid peru;
+    background-color: saddlebrown;
+}
+.header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.navegacao  a {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    color: white;
+
+}
+.navegacao  a:hover {
+    color: peru;
+    border-bottom: 0.1rem solid navajowhite;
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+.icones img{
+    margin: 1rem;
+    cursor: pointer;
+}
+.icones img:hover{
+    width: 40px;
+    height: 40px;
+}
+
+.header-button-side{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1rem;
+}
+.header-button-side-left h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    color: saddlebrown;
+}
+.header-button-side-left p{
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    color: saddlebrown;
+}
+
+.header-button-side-left{
+    height: 100%;
+    flex-basis: 50%;
+}
+.header-button-side-right{
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-button-side-right img{
+    width: 100%;
+}
+.cor-de-fundo{
+    background-color: saddlebrown;
+}
+.page-inner-content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cols {
+    display: grid;
+    justify-content: space-evenly;
+    padding: 1rem 4rem;
+}
+.cols-3{
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+.cols-3 img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+.cols-4 img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+.cols-4{
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+.cols>*{
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.cols>*:hover{
+    transform: translateY(-5px);
+}
+.section-title{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    color: saddlebrown;
+}
+.subtitle-underline{
+    width: 100px;
+    height: 5px;
+    background: peru;
+    border-radius: 9999px;
+    margin: 8px auto 0 auto;
+}
+.produt{
+    color: saddlebrown;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+.produto-nome{
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+.nota{
+    color: saddlebrown;
+    font-size: 1.3rem;
+}
+.preco-produto span{
+    font-weight: 600;
+}
+
+.opcoes-produto {
+    width: 200px;
+    height: 200px;
+    margin-top: 1rem;
+    background-color: #fff8f0;
+    padding: 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: saddlebrown;
+}
+
+.opcoes-produto label {
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.opcoes-produto input[type="checkbox"] {
+    margin-right: 0.4rem;
+    accent-color: peru;
+}
+
+.opcoes-produto select {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.3rem;
+    border: 1px solid peru;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+    color: saddlebrown;
+}
+
+.opcoes-produto select:focus {
+    outline: 2px solid peru;
+}
+
+.botao-carrinho {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: peru;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-carrinho:hover {
+    background-color: saddlebrown;
+}
+.avaliacao {
+    background-color: #fff8f0;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    color: saddlebrown;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avaliacao img {
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    border: 2px solid peru;
+}
+.c-avaliacao{
+    display: grid;
+    grid-template-columns: repeat(4,2fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.localliz{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+footer{
+    background-color: saddlebrown;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 2rem;
+}
+footer p{
+    font-size: 0.9rem;
+}
+.btn-car{
+    margin-top: 5.2rem;
+    margin-bottom: 1rem;
+}
+.btn-car2{
+    margin-top: 4.8rem;
+}
+
