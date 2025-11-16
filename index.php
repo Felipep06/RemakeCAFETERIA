@@ -1,47 +1,72 @@
 <?php
-// ---------------------------------------------
-// PROCESSAMENTO DO FORMULÁRIO
-// ---------------------------------------------
-$carrinhoMensagem = "";
+session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $produto = $_POST["produto"] ?? "Produto não identificado";
-    $acucar = $_POST["acucar"] ?? null;
-    $leite = $_POST["tipo-leite"] ?? null;
-    $porcao = $_POST["porcao"] ?? null;
 
-    $carrinhoMensagem = "<div style='
-        background:#333;
-        color:white;
-        padding:15px;
-        margin:20px;
-        border-radius:10px;
-        text-align:center;
-        border:2px solid #fff;
-        font-size:18px;
-    '>";
-
-    $carrinhoMensagem .= "<strong>$produto</strong> foi adicionado ao carrinho!<br>";
-
-    if ($acucar) $carrinhoMensagem .= "Açúcar: $acucar<br>";
-    if ($leite) $carrinhoMensagem .= "Leite: $leite<br>";
-    if ($porcao) $carrinhoMensagem .= "Porção escolhida: $porcao unidades<br>";
-
-    $carrinhoMensagem .= "</div>";
+if (!isset($_SESSION["carrinho"])) {
+    $_SESSION["carrinho"] = [];
 }
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafeteria</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
 
-<?php
-// Exibe mensagem de carrinho
-if (!empty($carrinhoMensagem)) echo $carrinhoMensagem;
+if (isset($_POST["acao"]) && $_POST["acao"] === "adicionar") {
+    
+    $produto = $_POST["produto"] ?? "";
+    $preco   = isset($_POST["preco"]) ? floatval($_POST["preco"]) : 0;
+    $quantidade = isset($_POST["quantidade"]) ? intval($_POST["quantidade"]) : 1;
+
+    $acucar  = $_POST["acucar"]     ?? "";
+    $leite   = $_POST["tipo-leite"] ?? "";
+    $porcao  = $_POST["porcao"]     ?? "";
+
+    $_SESSION["carrinho"][] = [
+        "produto"    => $produto,
+        "preco"      => $preco,
+        "quantidade" => $quantidade,
+        "acucar"     => $acucar,
+        "leite"      => $leite,
+        "porcao"     => $porcao
+    ];
+}
+
+if (isset($_GET["remover"])) {
+    $id = intval($_GET["remover"]);
+    unset($_SESSION["carrinho"][$id]);
+    $_SESSION["carrinho"] = array_values($_SESSION["carrinho"]); 
+}
+
+if (isset($_GET["limpar"])) {
+    $_SESSION["carrinho"] = [];
+}
+
+$pedido_finalizado = null;
+
+if (isset($_POST["acao"]) && $_POST["acao"] === "finalizar") {
+
+    $nome     = $_POST["nome"]     ?? "";
+    $telefone = $_POST["telefone"] ?? "";
+    $endereco = $_POST["endereco"] ?? "";
+
+    $total = 0;
+
+    foreach ($_SESSION["carrinho"] as $item) {
+        $subtotal = $item["preco"] * $item["quantidade"];
+        $total += $subtotal;
+    }
+
+    $pedido_finalizado = [
+        "cliente" => [
+            "nome" => $nome,
+            "telefone" => $telefone,
+            "endereco" => $endereco
+        ],
+        "pedido" => $_SESSION["carrinho"],
+        "total" => $total
+    ];
+
+    $_SESSION["carrinho"] = [];
+}
+
+return [
+    "carrinho" => $_SESSION["carrinho"],
+    "pedido_finalizado" => $pedido_finalizado
+];
 ?>
