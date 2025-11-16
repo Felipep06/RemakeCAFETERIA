@@ -1,10 +1,10 @@
 // Elementos DOM
-const searchIcon = document.getElementById('searchIcon');
-const searchBar = document.getElementById('searchBar');
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-const closeSearch = document.getElementById('closeSearch');
-const products = document.querySelectorAll('.product');
+const searchIcon = document.getElementById('searchIcon'); //icon para abrir pesquisa
+const searchBar = document.getElementById('searchBar'); //container da pesquisa
+const searchInput = document.getElementById('searchInput'); // campo de input
+const searchBtn = document.getElementById('searchBtn'); // botão de buscar
+const closeSearch = document.getElementById('closeSearch'); // botão de fechar
+const products = document.querySelectorAll('.products'); // lista de produtos
 
 // Mostrar a barra de pesquisa ao clicar
 searchIcon.addEventListener('click',function(){
@@ -14,7 +14,7 @@ searchIcon.addEventListener('click',function(){
 
 // Fechar barra de pesquisa
 closeSearch.addEventListener('click',function(){
-    searchBar.classList.remove('active')
+    searchBar.classList.remove('active');
     searchInput.value = ''; // Para limpar o campo de pesquisa
     resetSearch(); // Mostra todos os produtos novamente
 })
