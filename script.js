@@ -77,6 +77,29 @@ searchInput.addEventListener('focus',function(){
 searchInput.addEventListener('blur',function(){
     this.style.background = 'white';
 })
+document.getElementById('searchBtn').addEventListener('click',function(){ //fazer o botão de busca ir até o produto
+    const texto = document.getElementById('searchInput').value.toLowerCase();
+
+    const produtos = document.querySelectorAll('.produto');
+    let encontrado = false;
+
+    produtos.forEach(produto => {
+        const nome = produto.innerText.toLowerCase();
+
+        if(nome.includes(texto)){
+            produto.scrollIntoView({behavior: 'smooth', block: 'center'});
+            encontrado = true;
+
+            setTimeout(() => produto.style.outline = 'none', 2000);
+        }
+
+    }
+    
+    )
+    if(!encontrado){
+        alert("produto não encontrado");
+    }
+})
 
 
 
