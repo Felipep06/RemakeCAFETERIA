@@ -1,12 +1,10 @@
 <?php
 session_start();
 
-// Criar carrinho se não existir
 if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];
 }
 
-// Adicionar produto ao carrinho
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['produto'])) {
     $produto = [
         "nome" => $_POST['produto'],
@@ -129,8 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['produto'])) {
 
     </div>
 </div>
-
-<!-- Aqui continuam as avaliações e localização exatamente como seu HTML original -->
 
 <footer>
     <p>Todos os Direitos Reservados - 2025</p>
