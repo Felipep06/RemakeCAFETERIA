@@ -23,7 +23,7 @@ closeSearch.addEventListener('click',function(){
 searchBtn.addEventListener('click', performSearch);
 
 // Pesquisar ao pressionar enter
-searchInput.addEventListener('keypress',function(e){
+searchInput.addEventListener('keyup',function(e){
     if (e.key === 'Enter'){
         performSearch();
     }
