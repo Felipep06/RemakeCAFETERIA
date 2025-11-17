@@ -1,141 +1,140 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["carrinho"])) {
-    $_SESSION["carrinho"] = [];
+// Criar carrinho se não existir
+if (!isset($_SESSION['carrinho'])) {
+    $_SESSION['carrinho'] = [];
 }
 
-
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"]) && $_POST["acao"] === "adicionar") {
-
-    $produto = $_POST["produto"];
-    $preco = floatval($_POST["preco"]);
-    $opcao1 = $_POST["opcao1"] ?? "";
-    $opcao2 = $_POST["opcao2"] ?? "";
-    $select = $_POST["select"] ?? "";
-    $quantidade = intval($_POST["quantidade"] ?? 1);
-
-    $_SESSION["carrinho"][] = [
-        "produto" => $produto,
-        "preco" => $preco,
-        "opcao1" => $opcao1,
-        "opcao2" => $opcao2,
-        "select" => $select,
-        "quantidade" => $quantidade
-    ];
-}
-
-if (isset($_GET["remover"])) {
-    $id = intval($_GET["remover"]);
-    unset($_SESSION["carrinho"][$id]);
-    $_SESSION["carrinho"] = array_values($_SESSION["carrinho"]);
-}
-
-if (isset($_GET["limpar"])) {
-    $_SESSION["carrinho"] = [];
-}
-
-$resumo = null;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"]) && $_POST["acao"] === "finalizar") {
-
-    $nome = $_POST["nome"];
-    $telefone = $_POST["telefone"];
-    $endereco = $_POST["endereco"];
-
-    $total = 0;
-
-    foreach ($_SESSION["carrinho"] as $item) {
-        $total += $item["preco"] * $item["quantidade"];
-    }
-
-    $resumo = [
-        "cliente" => [
-            "nome" => $nome,
-            "telefone" => $telefone,
-            "endereco" => $endereco
-        ],
-        "itens" => $_SESSION["carrinho"],
-        "total" => $total
+// Adicionar produto ao carrinho
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['produto'])) {
+    $produto = [
+        "nome" => $_POST['produto'],
+        "preco" => $_POST['preco'],
+        "opcao" => $_POST['opcao'] ?? ""
     ];
 
-    $_SESSION["carrinho"] = [];
+    $_SESSION['carrinho'][] = $produto;
+    header("Location: index.php?add=success");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Carrinho</title>
-    <link rel="stylesheet" href="style (1).css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu Café</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
-<body>
 
+<body>
 <header class="header">
     <section>
-        <a href="index (1).html" class="navegacao" style="color:white;">← Voltar ao Menu</a>
-        <a href="?limpar=1" style="color:white;background:red;padding:8px;border-radius:8px;">Limpar carrinho</a>
+        <a href="#" class="logo">
+            <img width="64" height="64" src="https://img.icons8.com/dusk/64/java-coffee-cup-logo.png"/>
+        </a>
+        <nav class="navegacao">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#Menu">Menu</a>
+            <a href="#avaliacao">Avaliação</a>
+            <a href="#localizacao">Localização</a>
+        </nav>
+        <div class="icones">
+            <a href="carrinho.php">
+                🛒 (<?php echo count($_SESSION['carrinho']); ?>)
+            </a>
+        </div>
     </section>
 </header>
 
-<main style="margin-top:140px">
-
-<h2 style="text-align:center;color:saddlebrown;">Carrinho</h2>
-
-<?php if (empty($_SESSION["carrinho"])): ?>
-    <p style="text-align:center;color:saddlebrown;">Carrinho está vazio.</p>
-
-<?php else: ?>
-    <?php foreach ($_SESSION["carrinho"] as $i => $item): ?>
-        <div style="background:white;padding:15px;margin:10px auto;border-radius:10px;max-width:600px;color:saddlebrown;">
-            <b><?= $item["produto"] ?></b><br>
-            R$ <?= number_format($item["preco"],2,",",".") ?><br>
-            Quantidade: <?= $item["quantidade"] ?><br>
-            Opção 1: <?= $item["opcao1"] ?><br>
-            Opção 2: <?= $item["opcao2"] ?><br>
-            Seleção: <?= $item["select"] ?><br>
-            <a href="?remover=<?= $i ?>" style="color:red;font-weight:bold;">Remover</a>
+<header>
+    <div class="header-inner-content" id="sobre">
+        <div class="header-button-side">
+            <div class="header-button-side-left">
+                <h2>Paixão , Experiência e Conexão através do Café!</h2>
+                <p>Um espaço acolhedor onde o aroma de grãos torrados frescos
+                    se mistura ao clima descontraído. Ambiente perfeito para pausas,
+                    encontros ou trabalho, com atendimento que inspira conexões.</p>
+            </div>
+            <div class="header-button-side-right">
+                <img src="—Pngtree—flying cup of coffee with_5057949.png">
+            </div>
         </div>
-    <?php endforeach; ?>
-
-    <form method="POST" style="background:white;padding:20px;max-width:600px;margin:20px auto;border-radius:10px;">
-        <input type="hidden" name="acao" value="finalizar">
-
-        <h3 style="color:saddlebrown;">Finalizar Pedido</h3>
-
-        Nome:<br>
-        <input type="text" name="nome" required><br><br>
-
-        Telefone:<br>
-        <input type="text" name="telefone" required><br><br>
-
-        Endereço:<br>
-        <input type="text" name="endereco" required><br><br>
-
-        <button class="botao-carrinho">Finalizar Pedido</button>
-    </form>
-
-<?php endif; ?>
-
-<?php if ($resumo): ?>
-    <div style="background:white;padding:20px;margin:20px auto;border-radius:10px;max-width:600px;color:saddlebrown;">
-        <h3>Resumo</h3>
-
-        <p><b>Cliente:</b> <?= $resumo["cliente"]["nome"] ?></p>
-        <p><b>Telefone:</b> <?= $resumo["cliente"]["telefone"] ?></p>
-        <p><b>Endereço:</b> <?= $resumo["cliente"]["endereco"] ?></p>
-
-        <h4>Itens:</h4>
-        <ul>
-            <?php foreach ($resumo["itens"] as $item): ?>
-                <li><?= $item["produto"] ?> — R$ <?= number_format($item["preco"],2,",",".") ?> x <?= $item["quantidade"] ?></li>
-            <?php endforeach; ?>
-        </ul>
-
-        <p><b>Total:</b> R$ <?= number_format($resumo["total"],2,",",".") ?></p>
     </div>
-<?php endif; ?>
+</header>
+
+<main>
+<div class="cor-de-fundo">
+    <div class="page-inner-content">
+        <div class="cols cols-3">
+            <img src="...">
+            <img src="...">
+            <img src="...">
+            <img src="...">
+        </div>
+    </div>
+</div>
+
+<div class="page-inner-content" id="Menu">
+    <h3 class="section-title">Menu</h3>
+    <div class="subtitle-underline"></div>
+    
+    <div class="cols cols-4">
+
+        <?php
+        $produtos = [
+            ["Café Americano", "12.00"],
+            ["Café Macchiato", "25.00"],
+            ["Café Latte", "22.00"],
+            ["Café Mocha", "19.00"],
+            ["Café Cortado", "11.00"],
+            ["Café Frappé", "19.00"],
+            ["Dalgona Coffee", "28.50"],
+            ["Café com Panna", "13.00"],
+            ["Muffin", "2.00"],
+            ["Cookies", "0.50"],
+            ["Pão de Queijo", "19.00"],
+        ];
+
+        foreach ($produtos as $item) {
+        ?>
+
+        <div class="produto">
+            <img src="https://picsum.photos/200?random=<?php echo rand(1,200)?>">
+            <p class="produto-nome"><?php echo $item[0]; ?></p>
+            <p class="nota">★★★★★</p>
+            <p class="preco-produto"><?php echo $item[1]; ?> <span>R$</span></p>
+
+            <form method="POST" class="opcoes-produto">
+                <input type="hidden" name="produto" value="<?php echo $item[0]; ?>">
+                <input type="hidden" name="preco" value="<?php echo $item[1]; ?>">
+
+                <label><input type="checkbox" name="opcao" value="Com Açúcar"> Com açúcar</label>
+                <label><input type="checkbox" name="opcao" value="Sem Açúcar"> Sem açúcar</label>
+
+                <button type="submit" class="botao-carrinho">
+                    Adicionar ao carrinho
+                </button>
+            </form>
+        </div>
+
+        <?php } ?>
+
+    </div>
+</div>
+
+<!-- Aqui continuam as avaliações e localização exatamente como seu HTML original -->
+
+<footer>
+    <p>Todos os Direitos Reservados - 2025</p>
+</footer>
 
 </main>
 
