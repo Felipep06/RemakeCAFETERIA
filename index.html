@@ -14,27 +14,35 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header"> <!--Header da Navegação-->
         <section>
             <a href="#" class="logo">
-                <img width="64" height="64" src="https://img.icons8.com/dusk/64/java-coffee-cup-logo.png"
-                    alt="java-coffee-cup-logo" />
+                <img width="64" height="64" src="https://img.icons8.com/dusk/64/java-coffee-cup-logo.png" alt="java-coffee-cup-logo" /><!--Logo-->
             </a>
             <nav class="navegacao">
-                <a href="#inicio">Início</a>
+                <a href="#inicio">Início</a> <!-- Navegação-->
                 <a href="#sobre">Sobre</a>
                 <a href="#Menu">Menu</a>
                 <a href="#avaliacao">Avaliação</a>
                 <a href="#localizacao">Localização</a>
             </nav>
-            <div class="icones">
-                <img src="https://img.icons8.com/ios-filled/30/ffffff/search--v1.png" height="30px" width="30px" />
-                <img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" height="30px"
-                    width="30px" />
+            <div class="icones"> <!--icones utilizados-->
+                <div class="pesquisa" id="searchIcon">
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/30/ffffff/search--v1.png" height="25px" width="25px" /></a>
+                </div>
+                <div class="search-bar" id="searchBar">
+                    <input type="text" id="searchInput" placeholder="Pesquisar Produtos">
+                    <button class="search-btn" id="searchBtn">Buscar</button>
+                    <button class="close-btn" id="closeSearch">X</button>
+                </div>
+                <div class="carrinho">
+                    <a href=""><img src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png" height="25px"width="25px" /></a>
+                </div>
             </div>
+
         </section>
     </header>
-    <header>
+    <header> <!--Segundo Header da primeira parte-->
         <div class="header-inner-content" id="sobre">
             <div class="header-button-side">
                 <div class="header-button-side-left">
@@ -44,14 +52,14 @@
                         atendimento caloroso que inspira conexões.</p>
                 </div>
                 <div class="header-button-side-right">
-                    <img src="—Pngtree—flying cup of coffee with_5057949.png">
+                    <img src="Imagemcafe-topo.png">
                 </div>
             </div>
         </div>
         </section>
     </header>
     <main>
-        <div class="cor-de-fundo">
+        <div class="cor-de-fundo"> <!--Tipo de produtos vendidos-->
             <div class="page-inner-content">
                 <div class=" cols cols-3">
                     <img src="data:image/jpeg;base64,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"
@@ -67,12 +75,12 @@
         </div>
         <div class="">
             <div class="page-inner-content" id="Menu">
-                <h3 class="section-title">Menu</h3>
+                <h3 class="section-title">Menu</h3> <!--Menu-->
                 <div class="subtitle-underline"></div>
-                <div class="cols cols-4">
-                    <div class="produto">
+                <div class="cols cols-4" id="products"> <!--Produtos-->
+                    <div class="produto product " data-categoria="cafe" data-name="café americano" id="cafe-americano">
                         <img src="https://i.pinimg.com/1200x/84/8f/93/848f93df53ebb12817346bea375c2e5a.jpg" alt=""
-                            width="200px" height="200px">
+                            width="218px" height="200px">
                         <p class="produto-nome">Café Americano</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto">12,00 <span>R$</span></p>
@@ -86,8 +94,8 @@
                             <button type="submit" class="botao-carrinho btn-car">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
-                        <img src="https://osterstatic.reciperm.com/webp/10436.webp" alt="" width="200px" height="200px">
+                    <div class="produto product" data-categoria="cafe" data-name="café macchiato" id="cafe-macchiato">
+                        <img src="https://osterstatic.reciperm.com/webp/10436.webp" alt="" width="218px" height="200px">
                         <p class="produto-nome"> Café Macchiato</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto">25,00 <span>R$</span></p>
@@ -107,8 +115,8 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
-                        <img src="https://kbiocafe.com/cdn/shop/products/latte432.jpg?v=1632363618" alt="" width="200px"
+                    <div class="produto product" data-categoria="cafe"  data-name="café latte" id="cafe-latte">
+                        <img src="https://images.ctfassets.net/0e6jqcgsrcye/53teNK4AvvmFIkFLtEJSEx/4d3751dcad227c87b3cf6bda955b1649/Cafe_au_lait.jpg" alt="" width="218px"
                             height="200px">
                         <p class="produto-nome">Café Latte</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
@@ -129,9 +137,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="cafe" data-name="café mocha" id="cafe-mocha">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST0u-VCHb93dm24GCbxwFhv81hZaANmfaa7n2FXkk3kMJ9GCsb7hU-OFr0LH_-tGmwbj8&usqp=CAU"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Café Mocha</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto">19,00 <span>R$</span></p>
@@ -151,9 +159,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="cafe" data-name="café cortado" id="cafe-cortado">
                         <img src="https://kauai.co.za/wp-content/uploads/2020/05/Kauai-Cortado-Blog-Post-Web-Images-640x384px2-1-1024x615.png"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Café Cortado</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto">11,00 <span>R$</span></p>
@@ -173,9 +181,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="cafe" data-name="café frappé" id="cafe-frappe">
                         <img src="https://fgdjrynm.filerobot.com/recipes/d19219503751c29cc69f2c4bbac6bbcc08a7d194c5d9bbce9768ca00c6d04aa3.jpg?vh=cf510f&h=800&w=800&q=60"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Café Frappé </p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 19,00<span>R$</span></p>
@@ -195,9 +203,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="cafe" data-name="dalgona coffe" id="dalgona-cafe">
                         <img src="https://www.seriouseats.com/thmb/x5dQAByuE9saNvybQ4sjTU1dHG8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230621-SEA-DalognaCoffee-LorenaMasso-hero-e6a0eb179a2d457fb40c059d91594c35.jpg"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Dalgona Coffee</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 28,50<span>R$</span></p>
@@ -217,9 +225,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="cafe" data-name="café com Panna" id="cafe-com-panna">
                         <img src="https://www.maquinascafeexpresso.com/wp-content/uploads/2019/08/quais-sao-caracteristicas-cafe-panna-2.jpg"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Café com Panna</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 13,00<span>R$</span></p>
@@ -239,9 +247,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
-                        <img src="https://minascomvoce.com.br/wp-content/uploads/2022/02/raf_plain-740x493-1.jpg" alt=""
-                            width="200px" height="200px">
+                    <div class="produto product" data-categoria="cafe" data-name="café mead raf" id="cafe-mead-raf">
+                        <img src="https://www.cremashop.eu/content/www.crema.fi/media/recipe/raf-coffee/ingredients_7be4fbcfbcca29905a1ddc9288fe409a.jpeg" alt=""
+                            width="218px" height="200px">
                         <p class="produto-nome">Café Mead Raf</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 34,00<span>R$</span></p>
@@ -261,9 +269,9 @@
                             <button type="submit" class="botao-carrinho">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="muffin" data-name="muffin" id="muffin">
                         <img src="https://www.vitamix.com/content/dam/vitamix/migration/media/recipe/rcppumpkinmuffins/images/pumpkinmuffinsmainjpg.jpg"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Muffin</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 2,00<span>R$</span></p>
@@ -277,9 +285,9 @@
                             <button type="submit" class="botao-carrinho btn-car2">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product"data-categoria="cookies" data-name="cookies" id="cookies">
                         <img src="https://static.itdg.com.br/images/640-440/c850a535e8de2a4793622a50a858a6d3/shutterstock-1488059969.jpg"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">cookies</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 0,50<span>R$</span></p>
@@ -293,9 +301,9 @@
                             <button type="submit" class="botao-carrinho btn-car2">Adicionar ao carrinho</button>
                         </form>
                     </div>
-                    <div class="produto">
+                    <div class="produto product" data-categoria="pao" data-name="Pão de queijo" id="pao-de-queijo">
                         <img src="https://moinhoglobo.com.br/wp-content/uploads/2016/03/44-p%C3%A3o-de-queijo.jpg"
-                            alt="" width="200px" height="200px">
+                            alt="" width="218px" height="200px">
                         <p class="produto-nome">Cesta de Pão de Queijo</p>
                         <p class="nota">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                         <p class="preco-produto"> 19,00<span>R$</span></p>
@@ -311,7 +319,7 @@
                     </div>
                 </div>
             </div>
-            <div class="page-inner-content" id="avaliacao">
+            <div class="page-inner-content" id="avaliacao"> <!--Avaliações-->
                 <h3 class="section-title">Avaliações</h3>
                 <div class="subtitle-underline"></div>
                 <div class="cols cols-4">
@@ -362,7 +370,7 @@
     <p><strong>– Bruno Silva</strong></p>
 </div>
 </div>
-<div class="page-inner-content" id="localizacao">
+<div class="page-inner-content" id="localizacao"> <!--Localização-->
 <h3 class="section-title">Localização</h3>
     <div class="subtitle-underline"></div>
     <div class="localliz">
@@ -370,7 +378,7 @@
     </div>
 </div>
     </main>
-    <footer>
+    <footer> <!--Rodapé-->
         <div class="copyr" class="oioioi">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFg0lEQVR4nO2a+29UVRDHVwqlSqO0iOAPRoxapRA1/mSioiTKQ0XABwkIiZgSQKTUamJihKo/qMFniCT+AWr8xZCA78TiCwEFtZpopfUFagxUfKAVAvox036PjOvuvWe3t60QJtlk9545c87cM4/vzNlc7hgdpQTUArOAh4EXgXZgL3BAH/v+mcaMZyZQk/s/EFAFLABeA/6kdDoEvArMB4YPhgLHA3cA37tN7QdagZU6mfH2xoFh+tTomY2tAjZqTqDvgGZ7OQOlxNXAF24D7wMNwEllyBoJLAK2OXmdwPT+NqOn3ILbgSkZyp8GfOjkr838dICx2rjR78ByoCLTRXrXqQBWAN3utMdkJfwMHTeKOhMzEZy85nnA51qzw/bQV4GjncD3gJMz22362jXAO1rbfHJsX3wimNO7wIjMd5u+hxHAFmdmpfuMc2wzp9oS5l0I3KfwanN/k199A7wB3A9cWoK8Uc4q1pYTYoNjp/oEcBxwg7J5LH0C3GxzI32mW/OmlZLsQp5YHhkMNrsN2ptfA0wFzpF5mMzTgGuAR4EfHP/bxhexTpNz/nQTA+50eSIxxAKTgD3i3wksjAnLyvRL3dyfgMkpc4YCH4m/KcbBA+yYEqGEgUGj50MwACqBOcCzMjXzkT+Ar4DngBttUy4/md8gWZNT1pwu3m8TsZnAW0+EiDCn8DYfC3YOXJcHX4qRmcdUp/h6Pd8L1KX4Yoik85I2aCjWqCFF2GZ3EkP0We022gY0AvXORwwwLtOY0V8GHiVzuMKr0VtJAQBY3MMFLyfVE4eESIsCQEWn4BPBnIIS+7XQkIT5pvTtWsvobj0/00WmBSmJ0szwYMF9Cl4btaacRgixC505BSUuKza3gKyrNMfqmEl69oBktaXMDX51baHBRzS4MiXZhRBbIfsOPrE4Vgknz0ytGF2UMO9e8awuNGglqNHMBAGWsY3W6Pec8AaTzCnFzF4poMTPlgQT5s0W34ZCgzs0OD5BgMGOf7KrQqxRY24ACZigddsLDXZpcFSCgIB56vJ+1/fz3v9FhsK17p5CgyG5Vf5n8DDPPvFUF/o9UERvuO4JMOUq8uuRoEjX0WJaOyKcvTXP2Z/R7xX9vPeSnP2FPoTfj/sQfq1Bl0+/RIbf9UkJcVVEQtzpEmJoTCwtQ5Hb6IeEOEuDGyMhyi15b8fgxuUlKHGFgyiX6NmDkRDlTfHNKAbGAmgcmSDkegnZ5aLXQ06ZW5OKK5nTMtUoRnfp+VkONM5PmF/rQOOJxZiCvS5KOZVN4lvnYHxQJtTjTXLKasH4epmSjQUYf48r6ELbNA3GLxHfS7kEppvEtK0oUy/fOGC3eB8Pji7ztKIpjSxsX6k5lS7Q/AicnfISPxDv3KQNVqkrTqjgIkvddc7MhqlmeVrtoH0ymS+FzWa7UvdUnUCUj3G4u7Mr9RpCrX2keUzzYberoxsimw+V8pMuV+KmKTHUVZfpIFWn0hmb6FS/B58JoflJNQrOlY+cAJxuhRDwhFM++ERdxDrNzizjLoVct6I7KTHl2a5Vip8ST2267Ypp0F3golxpVxm6nwhvoCj+KrJoC/C68xHrWH4tiGPo4OISG+kdHlGUqkiV62xsGaQmdjWwVXvYWvY9o95Gu7tWGJ35bpMT3yat3dnnCx85c4czs/Mz222yeXZoTUPl47ISPMaZWbeydk8uyJLoDbHNzrHNnE7JepEqFwBQQzmT21dFPUt2IU/0OHa/3r3r9tXDkO3qLtaU6QdLHOwIppTZbXHM6TQpmwc6IHjdIhgyQbdNlfrY94nKNy3iDRAnwI7GwfoHhDUB5llD2fVyS6GDagzOHRQFCpE1lK3QUUN7g5Jhl/tTTZcy/3rxzChaTxyj3JFPfwPShxWP6QLR/wAAAABJRU5ErkJggg==" alt="copyright" height="20px" width="20px">
         </div>
@@ -378,6 +386,7 @@
         <p>Todos os Direitos Reservados - 2025</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
